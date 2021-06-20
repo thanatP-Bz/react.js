@@ -4,11 +4,11 @@ import ExpenseDate from "../expense/ExpenseDate";
 import Card from "../UI/Card";
 import "./ExpenseItem.css";
 
-const expenseItem = (props) => {
-  let title = props.title;
+const ExpenseItem = (props) => {
+  const [title, setTitle] = useState(props.title);
 
   const clickHalder = () => {
-    title = "update";
+    setTitle("Updated!");
     console.log(title);
   };
 
@@ -25,4 +25,4 @@ const expenseItem = (props) => {
   );
 };
 
-export default expenseItem;
+export default ExpenseItem;
