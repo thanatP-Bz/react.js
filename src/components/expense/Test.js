@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-const Test = (props) => {
-  const [title, updateTitle] = useState(props.title);
+export default function Test(props) {
+  const [title, setTitle] = useState(props.title);
 
   const clickHandler = () => {
-    updateTitle("ipad");
+    setTitle("ipad");
   };
 
   return (
@@ -15,6 +15,4 @@ const Test = (props) => {
       <button onClick={clickHandler}>click</button>
     </div>
   );
-};
-
-export default Test;
+}
