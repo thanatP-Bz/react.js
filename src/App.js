@@ -1,22 +1,35 @@
 import React from "react";
+import Season from "./Season";
+import Loading from "./Loading";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
+  state = { lat: null, errorMessage: "" };
 
-    this.state = { lat: null };
-
+  componentDidMount() {
     window.navigator.geolocation.getCurrentPosition(
       (position) => {
-        //we call set state
         this.setState({ lat: position.coords.latitude });
       },
-      (err) => console.log(err)
+      (err) => {
+        this.setState({ errorMessage: err.message });
+      }
     );
   }
+
+  /* componentDidUpdate() {
+    console.log("My component was just updated");
+  }  */
   //React we have to define render
   render() {
-    return <div>Latitude: {this.state.lat}</div>;
+    if (this.state.errorMessage && !this.state.lat) {
+      return <div>Error: {this.state.errorMessage}</div>;
+    }
+
+    if (!this.state.errorMessage && this.state.lat) {
+      return <Season lat={this.state.lat} />;
+    }
+
+    return <Loading />;
   }
 }
 
