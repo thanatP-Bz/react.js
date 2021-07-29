@@ -16,11 +16,7 @@ class App extends React.Component {
     );
   }
 
-  /* componentDidUpdate() {
-    console.log("My component was just updated");
-  }  */
-  //React we have to define render
-  render() {
+  renderContent() {
     if (this.state.errorMessage && !this.state.lat) {
       return <div>Error: {this.state.errorMessage}</div>;
     }
@@ -30,6 +26,9 @@ class App extends React.Component {
     }
 
     return <Loading message="Please accept location request" />;
+  }
+  render() {
+    return <div className="boder red">{this.renderContent()}</div>;
   }
 }
 
