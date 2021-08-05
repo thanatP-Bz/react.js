@@ -19,7 +19,7 @@ const Search = () => {
       setResults(data.query.search);
     };
 
-    setTimeout(() => {
+    const timeOutId = setTimeout(() => {
       if (term) {
         search();
       }
