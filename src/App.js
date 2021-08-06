@@ -1,5 +1,6 @@
 import React from "react";
-import Search from "./Components/Search.js";
+
+import DropDown from "./Components/DropDown.js";
 /* import Accordion from "./Components/Accordion"; */
 
 /* const items = [
@@ -19,10 +20,25 @@ import Search from "./Components/Search.js";
       " Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime hic voluptas, commodi dicta in pariatur perspiciatis voluptatum atque animi distinctio.",
   },
 ]; */
+
+const options = [
+  {
+    label: "the color red",
+    value: "red",
+  },
+  {
+    label: "the color green",
+    value: "green",
+  },
+  {
+    label: "the color red",
+    value: "blue",
+  },
+];
 function App() {
   return (
     <div>
-      <Search />
+      <DropDown options={options} />
     </div>
   );
 }

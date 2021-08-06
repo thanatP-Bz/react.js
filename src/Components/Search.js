@@ -3,7 +3,17 @@ import React, { useState, useEffect } from "react";
 
 const Search = () => {
   const [term, setTerm] = useState("");
+  const [debounceTerm, setDebounceTerm] = useState(term);
   const [results, setResults] = useState([]);
+
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      setDebounceTerm(term);
+    }, 1000);
+    return () => {
+      clearTimeout(timerId);
+    };
+  }, [term]);
 
   useEffect(() => {
     const search = async () => {
@@ -13,18 +23,15 @@ const Search = () => {
           list: "search",
           origin: "*",
           format: "json",
-          srsearch: term,
+          srsearch: debounceTerm,
         },
       });
       setResults(data.query.search);
     };
-
-    const timeOutId = setTimeout(() => {
-      if (term) {
-        search();
-      }
-    }, 500);
-  }, [term]);
+    if (debounceTerm) {
+      search();
+    }
+  }, [debounceTerm]);
 
   const onTermSubmit = (e) => {
     setTerm(e.target.value);
