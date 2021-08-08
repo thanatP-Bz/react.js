@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import Translate from "./Translate.js";
 
 import DropDown from "./Components/DropDown.js";
 /* import Accordion from "./Components/Accordion"; */
@@ -31,14 +32,15 @@ const options = [
     value: "green",
   },
   {
-    label: "the color red",
+    label: "the color blue",
     value: "blue",
   },
 ];
+
 function App() {
   return (
     <div>
-      <DropDown options={options} />
+      <Translate />
     </div>
   );
 }
