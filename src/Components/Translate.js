@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import DropDown from "./Components/DropDown";
+import Dropdown from "./Dropdown";
 import Convert from "./Convert";
 
 const options = [
@@ -33,7 +33,7 @@ const Translate = () => {
           <input value={text} onChange={onchangeText} />
         </div>
       </div>
-      <DropDown
+      <Dropdown
         label="select the Language"
         selected={language}
         options={options}

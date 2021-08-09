@@ -1,48 +1,66 @@
 import React, { useState } from "react";
-import Translate from "./Translate.js";
+import Accordion from "./Components/Accordion";
+import Dropdown from "./Components/Dropdown";
+import Search from "./Components/Search";
+import Translate from "./Components/Translate";
+import Route from "./Components/Route";
+import Header from "./Header";
 
-import DropDown from "./Components/DropDown.js";
-/* import Accordion from "./Components/Accordion"; */
-
-/* const items = [
+const items = [
   {
-    title: "what is react",
-    content:
-      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime hic voluptas, commodi dicta in pariatur perspiciatis voluptatum atque animi distinctio.",
+    title: "What is React?",
+    content: "React is a front end javascript framework",
   },
   {
-    title: "what is Js",
-    content:
-      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime hic voluptas, commodi dicta in pariatur perspiciatis voluptatum atque animi distinctio.",
+    title: "Why use React?",
+    content: "React is a favorite JS library among engineers",
   },
   {
-    title: "what is library",
-    content:
-      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime hic voluptas, commodi dicta in pariatur perspiciatis voluptatum atque animi distinctio.",
+    title: "How do you use React?",
+    content: "You use React by creating components",
   },
-]; */
+];
 
 const options = [
   {
-    label: "the color red",
+    label: "The Color Red",
     value: "red",
   },
   {
-    label: "the color green",
+    label: "The Color Green",
     value: "green",
   },
   {
-    label: "the color blue",
+    label: "A Shade of Blue",
     value: "blue",
   },
 ];
 
-function App() {
+const App = () => {
+  const [selected, setSelected] = useState("");
+
   return (
     <div>
-      <Translate />
+      <Header />
+      <Route path="/">
+        <Accordion items={items} />
+      </Route>
+      <Route path="/list">
+        <Search />
+      </Route>
+      <Route path="/dropdown">
+        <Dropdown
+          label="Select the Color"
+          options={options}
+          selected={selected}
+          onSelectedChange={setSelected}
+        />
+      </Route>
+      <Route path="/translate">
+        <Translate />
+      </Route>
     </div>
   );
-}
+};
 
 export default App;
