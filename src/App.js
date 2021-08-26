@@ -1,18 +1,10 @@
 import React from "react";
-import SongList from "./Components/SongList";
-import SongDetail from "./Components/SongDetail";
+import { Button } from "@material-ui/core";
 
 function App() {
   return (
-    <div className="ui container grid">
-      <div className="ui row">
-        <div className="column eight wide">
-          <SongList />
-        </div>
-        <div className="column eight wide">
-          <SongDetail />
-        </div>
-      </div>
+    <div className="box">
+      <Button variant="contained">Hello World</Button>
     </div>
   );
 }
