@@ -1,11 +1,18 @@
 import React from "react";
-import { Button } from "@material-ui/core";
+import Navbar from "./components/Navbar";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Fragment } from "react";
 
 function App() {
   return (
-    <div className="box">
-      <Button variant="contained">Hello World</Button>
-    </div>
+    <Fragment>
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route path="/" exact />
+        </Switch>
+      </Router>
+    </Fragment>
   );
 }
 
