@@ -1,18 +1,18 @@
 import React from "react";
 import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Fragment } from "react";
 
 function App() {
   return (
-    <div className="app">
+    <Fragment>
       <Router>
         <Navbar />
         <Switch>
-          <Route path="/" exact component={Home} />
+          <Route path="/" exact />
         </Switch>
       </Router>
-    </div>
+    </Fragment>
   );
 }
 
